@@ -11,7 +11,6 @@ const selectOrder = document.querySelector('#orderoptions');
 const calculation = document.querySelector('#calculation')
 const cards = document.querySelector('#cardscontainer');
 filterBox.hidden = true;
-console.log(data.results.length)
 
 buttonFilter.addEventListener('click', (e) => { //exibe filtros
     filterBox.hidden = false;
@@ -43,6 +42,7 @@ buttonSearch.addEventListener('click', (event) => { //filtra e exibe cards
     calculation.innerHTML = 'olá';
 
     const filterIndex = selectFilter.options[selectFilter.selectedIndex].value;
+    
     if (keyWords.value !== '') {
 
         const filterByName = filterName(data, keyWords.value)
