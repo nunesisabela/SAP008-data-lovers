@@ -10,7 +10,9 @@ export function sortData(array, property, order) {
   array.sort
 }
 
-
+export function percentage(array, newArray) {
+  return parseInt((100 * newArray) / array.results.length)
+}
 
 
 

@@ -1,4 +1,4 @@
-import { filterData, filterName } from './data.js';
+import { filterData, filterName, percentage } from './data.js';
 import data from './data/rickandmorty/rickandmorty.js';
 
 const form = document.querySelector('#form');
@@ -9,9 +9,9 @@ const buttonSearch = document.querySelector('#search');
 const selectFilter = document.querySelector('#filteroptions');
 const selectOrder = document.querySelector('#orderoptions');
 const calculation = document.querySelector('#calculation')
-const cards = document.querySelector('#cards');
+const cards = document.querySelector('#cardscontainer');
 filterBox.hidden = true;
-
+console.log(data.results.length)
 
 buttonFilter.addEventListener('click', (e) => { //exibe filtros
     filterBox.hidden = false;
@@ -43,17 +43,27 @@ buttonSearch.addEventListener('click', (event) => { //filtra e exibe cards
     calculation.innerHTML = 'olá';
 
     const filterIndex = selectFilter.options[selectFilter.selectedIndex].value;
-    if (keyWords.value !== "") {
-        return cards.innerHTML = showCards(filterName(data, keyWords.value))
-    } else if (filterIndex === "Alive" || filterIndex === "Dead" || filterIndex === "unknown") {
-        return cards.innerHTML = showCards(filterData(data, "status", filterIndex))
-    } else if (filterIndex === "Female" || filterIndex === "Male" || filterIndex === "Genderless") {
-        return cards.innerHTML = showCards(filterData(data, "gender", filterIndex))
-    } else if (filterIndex === "all") {
-        return cards.innerHTML = showCards(data.results)
-    };
+    if (keyWords.value !== '') {
 
-    const orderIndex = selectOrder.options[selectOrder.selectedIndex].value;
+        const filterByName = filterName(data, keyWords.value)
+        const percentageName = percentage(data, filterByName.length)
+        return cards.innerHTML = showCards(filterByName), console.log(percentageName)
+
+    } else if (filterIndex === 'Alive' || filterIndex === 'Dead' || filterIndex === 'unknown') {
+        const filterStatus = filterData(data, 'status', filterIndex)
+        const percentageStatus = percentage(data, filterStatus.length)
+        return cards.innerHTML = showCards(filterStatus), console.log(percentageStatus)
+
+    } else if (filterIndex === 'Female' || filterIndex === 'Male' || filterIndex === 'Genderless') {
+        const filterGender = filterData(data, 'gender', filterIndex)
+        const percentageGender = percentage(data, filterGender.length)
+        return cards.innerHTML = showCards(filterGender), console.log(percentageGender)
+
+    } else if (filterIndex === 'all') {
+        return cards.innerHTML = showCards(data.results), console.log(percentage(data, 493))
+    };
+    
+    //const orderIndex = selectOrder.options[selectOrder.selectedIndex].value;
 });
 
 // L29 E os personagens não-humanos? Como filtrá-los?
