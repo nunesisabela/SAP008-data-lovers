@@ -1,6 +1,7 @@
-import { filterData, filterName, percentage } from './data.js';
+import { filterData, filterName, percentage, sortData } from './data.js';
 import data from './data/rickandmorty/rickandmorty.js';
 
+const title = document.querySelector('#title');
 const form = document.querySelector('#form');
 const filterBox = document.querySelector('#filterbox');
 const keyWords = document.querySelector('#keywords');
@@ -8,9 +9,15 @@ const buttonFilter = document.querySelector('#filter');
 const buttonSearch = document.querySelector('#search');
 const selectFilter = document.querySelector('#filteroptions');
 const selectOrder = document.querySelector('#orderoptions');
-const calculation = document.querySelector('#calculation')
+const explanation = document.querySelector('#explanation');
+const calculation = document.querySelector('#calculation'); //<aside>
 const cards = document.querySelector('#cardscontainer');
 filterBox.hidden = true;
+explanation.hidden = true;
+
+title.addEventListener('click', (e) => {
+    document.location.reload(true)
+});
 
 buttonFilter.addEventListener('click', (e) => { //exibe filtros
     filterBox.hidden = false;
@@ -36,34 +43,42 @@ function showCards(infos) { //cards template
     ).join('');
 };
 
-buttonSearch.addEventListener('click', (event) => { //filtra e exibe cards
+buttonSearch.addEventListener('click', (e) => { //filtra e exibe cards
     filterBox.hidden = true;
-    event.preventDefault();
-    calculation.innerHTML = 'olá';
-
-    const filterIndex = selectFilter.options[selectFilter.selectedIndex].value;
+    e.preventDefault();
     
+    const filterIndex = selectFilter.options[selectFilter.selectedIndex].value;
+    const orderIndex = selectOrder.options[selectOrder.selectedIndex].value;
+
     if (keyWords.value !== '') {
 
         const filterByName = filterName(data, keyWords.value)
         const percentageName = percentage(data, filterByName.length)
-        return cards.innerHTML = showCards(filterByName), console.log(percentageName)
+        return cards.innerHTML = showCards(filterByName), calculation.innerHTML = `${percentageName}%`
 
     } else if (filterIndex === 'Alive' || filterIndex === 'Dead' || filterIndex === 'unknown') {
         const filterStatus = filterData(data, 'status', filterIndex)
         const percentageStatus = percentage(data, filterStatus.length)
-        return cards.innerHTML = showCards(filterStatus), console.log(percentageStatus)
-
+        return cards.innerHTML = showCards(filterStatus), calculation.innerHTML = `${percentageStatus}%`
+        
     } else if (filterIndex === 'Female' || filterIndex === 'Male' || filterIndex === 'Genderless') {
         const filterGender = filterData(data, 'gender', filterIndex)
         const percentageGender = percentage(data, filterGender.length)
-        return cards.innerHTML = showCards(filterGender), console.log(percentageGender)
+        return cards.innerHTML = showCards(filterGender), calculation.innerHTML = `${percentageGender}%`
 
     } else if (filterIndex === 'all') {
-        return cards.innerHTML = showCards(data.results), console.log(percentage(data, 493))
+        const percentageAll = percentage(data, 493)
+        return cards.innerHTML = showCards(data.results), calculation.innerHTML = `${percentageAll}%`
     };
     
-    //const orderIndex = selectOrder.options[selectOrder.selectedIndex].value;
+});
+
+calculation.addEventListener('mouseover', () => {
+    explanation.hidden = false; 
+});
+
+calculation.addEventListener('mouseout', () => {
+    explanation.hidden = true; 
 });
 
 // L29 E os personagens não-humanos? Como filtrá-los?

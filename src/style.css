@@ -20,6 +20,7 @@ body {
 #title {
     max-width: 578px;
     max-height: 245px;
+    cursor: pointer;
 }
 
 header {
@@ -43,7 +44,8 @@ input[name=keywords] {
 }
 
 #filter,
-#search {
+#search,
+p#calculation {
     font-family: 'Atma';
     -webkit-text-fill-color: black;
     -webkit-text-stroke-width: 1px;
@@ -55,10 +57,17 @@ input[name=keywords] {
 
 #filter {
     -webkit-text-stroke-color: #73D8CC;
+    cursor: pointer;
 }
 
 #search {
     -webkit-text-stroke-color: #78C742;
+    cursor: pointer;
+}
+
+p#calculation {
+    -webkit-text-stroke-color: white;
+    width: max-content;
 }
 
 .filteroptions {
@@ -66,7 +75,8 @@ input[name=keywords] {
     font-family: 'K2D';
 }
 
-#filterbox {
+#filterbox,
+p#explanation {
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 10px;
     padding: 10px;
@@ -111,4 +121,6 @@ footer {
     color: rgba(255, 255, 255, 0.3);
     font-family: 'K2D';
     text-align: center;
-};
+}
+
+;
