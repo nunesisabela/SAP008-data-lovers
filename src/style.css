@@ -53,16 +53,15 @@ p#calculation {
     border-color: transparent;
     background-color: transparent;
     font-weight: 600;
+    cursor: pointer;
 }
 
 #filter {
     -webkit-text-stroke-color: #73D8CC;
-    cursor: pointer;
 }
 
 #search {
     -webkit-text-stroke-color: #78C742;
-    cursor: pointer;
 }
 
 p#calculation {

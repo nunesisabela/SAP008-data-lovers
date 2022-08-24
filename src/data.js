@@ -6,11 +6,29 @@ export function filterName(array, characterCondition) { //filtra nome
   return array.results.filter(elem => elem.name.toUpperCase().includes(characterCondition.toUpperCase())) 
 };
 
-export function sortData(a, b) {
+export function sortDataAz(a, b) {
   if (a.name < b.name) {
     return -1;
   };
   if (a.name > b.name) {
+    return 1;
+  }
+};
+
+export function sortDataZa(a, b) {
+  if (a.name > b.name) {
+    return -1;
+  };
+  if (a.name < b.name) {
+    return 1;
+  }
+};
+
+export function sortDataEpisode(a, b) {
+  if (a.episode < b.episode) {
+    return -1;
+  };
+  if (a.episode > b.episode) {
     return 1;
   }
 };
