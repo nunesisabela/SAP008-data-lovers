@@ -13,17 +13,29 @@
 }
 
 body {
-    background-image: url('https://github.com/blericalopes/SAP008-data-lovers/blob/main/src_data_lovers/bg_img_galaxy.jpg?raw=true');
+    background-image: url(https://github.com/blericalopes/SAP008-data-lovers/blob/main/src_data_lovers/bg_img_galaxy.jpg?raw=true);
     background-size: contain;
+    font-family: 'K2D';
+    color: white;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+}
+
+aside {
+    mix-blend-mode: lighten;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
 }
 
 #title {
     cursor: pointer;
-}
-
-header {
-    font-family: 'K2D';
-    color: white;
+    object-fit: contain;
+    width: 578px;
+    height: 245px;
 }
 
 input[name=keywords] {
@@ -59,11 +71,6 @@ p#calculation {
 
 }
 
-.filteroptions {
-    color: white;
-    font-family: 'K2D';
-}
-
 #filterbox,
 p#explanation {
     background-color: rgba(255, 255, 255, 0.5);
@@ -72,47 +79,54 @@ p#explanation {
     width: max-content;
 }
 
+#cardscontainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .cards {
     background-color: rgba(255, 255, 255, 0.5);
-    width: 50vh;
 }
 
-li {
-    color: rgb(0, 0, 0);
-    font-family: "K2D";
-}
 
-p {
-    color: rgb(255, 255, 255);
-    font-family: "K2D";
-    font-weight: 500;
+#photos {
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    height: 200px;
+    border-radius: 10%;
 }
 
 p#names {
     font-family: 'Atma';
     text-transform: uppercase;
-    font-family: 'Atma';
     -webkit-text-fill-color: black;
     -webkit-text-stroke-color: white;
     -webkit-text-stroke-width: 1px;
     border-color: transparent;
     background-color: transparent;
     font-weight: 600;
+    text-align: center;
 }
 
-img#portal {
-    mix-blend-mode: lighten;
+li {
+    color: rgb(0, 0, 0);
 }
 
 footer {
     color: rgba(255, 255, 255, 0.3);
-    font-family: 'K2D';
     text-align: center;
 }
 
-@media (min-width: 481px) and ( max-width: 768px){
-    #title{
-        max-width: 90%;
-        max-height: 50%;
-    }   
+@media (min-width: 481px) and (max-width: 768px) {  
+   body {
+    flex-wrap: wrap;
+   }
+}
+
+@media (min-width: 769px) and (max-width: 1279px) { 
+    body {
+        flex-direction: row;
+    }
 }

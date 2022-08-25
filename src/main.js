@@ -26,18 +26,15 @@ buttonFilter.addEventListener('click', (e) => { //exibe filtros
 
 function showCards(infos) { //cards template
     return infos.map((elem) => `
-      <div class="cards">
-      <img id="photos" src="${elem.image}" alt="imagem do personagem"><br>
-      <p id="names">${elem.name}</p><br>
-      <ul class="cards-list">
-        <p>Status: </p>
-        <li>${elem.status}</li>
-        <p>Gênero: </p>
-        <li>${elem.gender}</li>
-        <p>Espécie: </p>
-        <li>${elem.species}</li>
-      </ul>
-      </div>
+      <article class="cards">
+        <img id="photos" src="${elem.image}" alt="imagem do personagem"><br>
+        <p id="names">${elem.name}</p><br>
+        <ul class="cards-list">
+            <li>Status: ${elem.status}</li>
+            <li>Gênero: ${elem.gender}</li>
+            <li>Espécie: ${elem.species}</li>
+        </ul>
+      </article>
         `
     ).join('');
 };
