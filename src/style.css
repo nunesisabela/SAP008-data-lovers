@@ -2,7 +2,6 @@ body {
     background-image: url(https://github.com/blericalopes/SAP008-data-lovers/blob/main/src_data_lovers/bg_img_galaxy.jpg?raw=true);
     background-size: contain;
     font-family: 'K2D', sans-serif;
-    ;
     color: white;
     font-weight: 500;
     display: flex;
@@ -114,6 +113,11 @@ ul {
 li {
     color: rgb(0, 0, 0);
     list-style-type: none;
+}
+
+.type {
+    color: white;
+    font-weight: 500;
 }
 
 footer {

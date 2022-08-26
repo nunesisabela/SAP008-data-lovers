@@ -30,9 +30,9 @@ function showCards(infos) { //cards template
         <img id="photos" src="${elem.image}" alt="imagem do personagem"><br>
         <p id="names">${elem.name}</p><br>
         <ul class="cards-list">
-            <li>Status: ${elem.status}</li>
-            <li>Gênero: ${elem.gender}</li>
-            <li>Espécie: ${elem.species}</li>
+            <li><span class="type">Status:</span> ${elem.status}</li>
+            <li><span class="type">Gênero:</span> ${elem.gender}</li>
+            <li><span class="type">Species:</span> ${elem.species}</li>
         </ul>
       </article>
         `
