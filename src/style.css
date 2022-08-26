@@ -2,8 +2,8 @@ body {
     background-image: url(https://github.com/blericalopes/SAP008-data-lovers/blob/main/src_data_lovers/bg_img_galaxy.jpg?raw=true);
     background-size: contain;
     font-family: 'K2D', sans-serif;
-    color: white;
     font-weight: 500;
+    color: white;
     display: flex;
     justify-content: center;
     text-align: center;
@@ -36,7 +36,6 @@ input[name=keywords] {
 
 .buttons,
 p#calculation {
-    font-size: 22px;
     font-family: 'Atma', cursive;
     -webkit-text-fill-color: black;
     -webkit-text-stroke-width: 1px;
@@ -125,9 +124,19 @@ footer {
     text-align: center;
 }
 
-@media (min-width: 481px) and (max-width: 768px) {
+@media (max-width: 768px) { 
     body {
         flex-wrap: wrap;
+        font-size: 12px;
+    }
+
+    #portal {
+        width: 476px;
+    }
+
+    #title {
+        width: 300px;
+
     }
 
     input[name=keywords] {
@@ -136,11 +145,24 @@ footer {
         border-radius: 15px;
         font-size: 12px;
     }
+
+    .buttons {
+        font-size: 15px;
+    }
 }
 
-@media (min-width: 769px) and (max-width: 1279px) {
+@media (min-width: 769px) {
     body {
         flex-direction: row;
+        font-size: 18px;
+    }
+
+    #portal {
+        width:981px;
+    }
+
+    #title {
+        width: 578px;
     }
 
     input[name=keywords] {
@@ -148,5 +170,9 @@ footer {
         height: 44px;
         border-radius: 22px;
         font-size: 18px;
+    }
+
+    .buttons {
+        font-size: 22px;
     }
 }
