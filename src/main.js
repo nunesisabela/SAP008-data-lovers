@@ -2,6 +2,7 @@ import { filterData, filterName, percentage, sortDataAz, sortDataEpisode, sortDa
 import data from './data/rickandmorty/rickandmorty.js';
 
 const title = document.querySelector('#title');
+const intro = document.querySelector('#intro')
 const filterBox = document.querySelector('#filterbox');
 const keyWords = document.querySelector('#keywords');
 const buttonFilter = document.querySelector('#filter');
@@ -14,6 +15,7 @@ const cards = document.querySelector('#cardscontainer');
 
 filterBox.hidden = true;
 explanation.hidden = true;
+intro.hidden = false;
 
 title.addEventListener('click', (e) => {
     document.location.reload(true);
@@ -41,6 +43,7 @@ function showCards(infos) { //cards template
 
 buttonSearch.addEventListener('click', (e) => { //filtra, ordena e exibe cards
     filterBox.hidden = true;
+    intro.hidden = true;
     e.preventDefault();
 
     const filterIndex = selectFilter.options[selectFilter.selectedIndex].value;
@@ -100,4 +103,3 @@ calculation.addEventListener('click', () => {
 
 // L29 E os personagens não-humanos? Como filtrá-los?
 // Como funciona o .join() depois do template?
-// Como usar as tipografias escolhidas?
