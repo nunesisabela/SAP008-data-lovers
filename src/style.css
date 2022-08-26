@@ -1,25 +1,13 @@
-@font-face {
-    font-family: 'K2D';
-    src: url('k2d-v9-latin-regular.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Atma';
-    src: url('Atma-Bold.tff');
-    src: url('Atma-Light.tff');
-    src: url('Atma-Medium.tff');
-    src: url('Atma-Regular.tff');
-    src: url('Atma-SemiBold.tff');
-}
-
 body {
     background-image: url(https://github.com/blericalopes/SAP008-data-lovers/blob/main/src_data_lovers/bg_img_galaxy.jpg?raw=true);
     background-size: contain;
-    font-family: 'K2D';
+    font-family: 'K2D', sans-serif;
+    ;
     color: white;
     font-weight: 500;
     display: flex;
     justify-content: center;
+    text-align: center;
 }
 
 aside {
@@ -29,6 +17,7 @@ aside {
 main {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 #title {
@@ -39,22 +28,22 @@ main {
 }
 
 input[name=keywords] {
-    font-family: 'K2D';
+    font-family: 'K2D', sans-serif;
     font-weight: 500;
-    padding-left: 1%;
+    padding-left: 2%;
     border: none;
     background-color: white;
 }
 
-#filter,
-#search,
+.buttons,
 p#calculation {
-    font-family: 'Atma';
+    font-size: 22px;
+    font-family: 'Atma', cursive;
     -webkit-text-fill-color: black;
     -webkit-text-stroke-width: 1px;
     border-color: transparent;
     background-color: transparent;
-    font-weight: 600;
+    font-weight: 500;
     cursor: pointer;
 }
 
@@ -86,6 +75,9 @@ p#explanation {
 
 .cards {
     background-color: rgba(255, 255, 255, 0.5);
+    margin: 1%;
+    border-radius: 15px;
+    text-align: center;
 }
 
 
@@ -95,11 +87,11 @@ p#explanation {
     margin-bottom: 20px;
     margin-left: 20px;
     height: 200px;
-    border-radius: 10%;
+    border-radius: 10px;
 }
 
 p#names {
-    font-family: 'Atma';
+    font-family: 'Atma', cursive;
     text-transform: uppercase;
     -webkit-text-fill-color: black;
     -webkit-text-stroke-color: white;
@@ -107,11 +99,21 @@ p#names {
     border-color: transparent;
     background-color: transparent;
     font-weight: 600;
-    text-align: center;
+}
+
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
 }
 
 li {
     color: rgb(0, 0, 0);
+    list-style-type: none;
 }
 
 footer {
@@ -119,14 +121,28 @@ footer {
     text-align: center;
 }
 
-@media (min-width: 481px) and (max-width: 768px) {  
-   body {
-    flex-wrap: wrap;
-   }
+@media (min-width: 481px) and (max-width: 768px) {
+    body {
+        flex-wrap: wrap;
+    }
+
+    input[name=keywords] {
+        width: 250px;
+        height: 22px;
+        border-radius: 15px;
+        font-size: 12px;
+    }
 }
 
-@media (min-width: 769px) and (max-width: 1279px) { 
+@media (min-width: 769px) and (max-width: 1279px) {
     body {
         flex-direction: row;
+    }
+
+    input[name=keywords] {
+        width: 500px;
+        height: 44px;
+        border-radius: 22px;
+        font-size: 18px;
     }
 }
