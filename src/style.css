@@ -33,16 +33,23 @@ main {
     height: 245px;
 }
 
+#intro {
+    margin-block-start: 0px;
+    margin-block-end: 35px;
+
+}
+
 input[name=keywords] {
     font-family: 'K2D', sans-serif;
     font-weight: 500;
     padding-left: 2%;
     border: none;
     background-color: white;
+    margin-block-start: 0px;
+    margin-block-end: 20px;
 }
 
-.buttons,
-p#calculation {
+.buttons {
     font-family: 'Atma', cursive;
     -webkit-text-fill-color: black;
     -webkit-text-stroke-width: 1px;
@@ -50,6 +57,7 @@ p#calculation {
     background-color: transparent;
     font-weight: 500;
     cursor: pointer;
+    margin-block-end: 10px;
 }
 
 #filter {
@@ -60,15 +68,20 @@ p#calculation {
     -webkit-text-stroke-color: #78C742;
 }
 
-p#calculation {
-    -webkit-text-stroke-color: white;
-
+#calculation {
+    margin-block-start: 0px;
+    margin-block-end: 20px;
 }
 
-#filterbox,
-p#explanation {
+.percentagenumber {
+    font-family: 'Atma', cursive;
+    text-shadow: 0px 0px 4px #00ffe1, 0 0 1em #73d8cc;
+    font-size: 24px;
+}
+
+#filterbox {
     background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 8%;
+    border-radius: 10px;
     padding: 1%;
     width: max-content;
 }
@@ -76,6 +89,7 @@ p#explanation {
 #cardscontainer {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .cards {
@@ -84,18 +98,19 @@ p#explanation {
     border-radius: 15px;
     text-align: center;
     border: 5px solid #78C742;
-  box-shadow:
+    box-shadow:
     inset 0 0 0 5px black,
     inset 0 0 0 10px #73D8CC;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 0 1 25%;
     
 }
 
 
 #photos {
-    margin-top: 20px;
-    margin-right: 20px;
-    margin-bottom: 20px;
-    margin-left: 20px;
+    margin: 20px;
     height: 200px;
     border-radius: 10px;
 }
@@ -103,21 +118,20 @@ p#explanation {
 p#names {
     font-family: 'Atma', cursive;
     text-transform: uppercase;
-    -webkit-text-fill-color: black;
-    -webkit-text-stroke-color: white;
-    -webkit-text-stroke-width: 1px;
     border-color: transparent;
     background-color: transparent;
-    font-weight: 600;
+    font-weight: 700;
+    word-wrap: break-word;
+    width: 150px;
+    margin: 5px;
+    font-size: 22px;
 }
 
 ul {
     display: block;
     list-style-type: disc;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
+    margin-block-start: 5px;
+    margin-block-end: 20px;
     padding-inline-start: 0px;
 }
 
@@ -185,7 +199,7 @@ footer {
     }
 
     #portalweb {
-        width: 800px;
+        width: 550px;
     }
     
     #title {

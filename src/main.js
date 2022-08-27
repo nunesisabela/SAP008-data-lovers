@@ -9,12 +9,10 @@ const buttonFilter = document.querySelector('#filter');
 const buttonSearch = document.querySelector('#search');
 const selectFilter = document.querySelector('#filteroptions');
 const selectOrder = document.querySelector('#orderoptions');
-const explanation = document.querySelector('#explanation');
 const calculation = document.querySelector('#calculation');
 const cards = document.querySelector('#cardscontainer');
 
 filterBox.hidden = true;
-explanation.hidden = true;
 intro.hidden = false;
 
 title.addEventListener('click', (e) => {
@@ -29,8 +27,8 @@ buttonFilter.addEventListener('click', (e) => { //exibe filtros
 function showCards(infos) { //cards template
     return infos.map((elem) => `
       <article class="cards">
-        <img id="photos" src="${elem.image}" alt="imagem do personagem"><br>
-        <p id="names">${elem.name}</p><br>
+        <img id="photos" src="${elem.image}" alt="imagem do personagem">
+        <p id="names">${elem.name}</p>
         <ul class="cards-list">
             <li><span class="type">Status:</span> ${elem.status}</li>
             <li><span class="type">Gênero:</span> ${elem.gender}</li>
@@ -55,9 +53,11 @@ buttonSearch.addEventListener('click', (e) => { //filtra, ordena e exibe cards
         const percentageName = percentage(data, filterByName.length);
 
         if (orderIndex === 'az') {
-            return cards.innerHTML = showCards(filterByName.sort(sortDataAz)), calculation.innerHTML = `${percentageName}%`
+            return cards.innerHTML = showCards(filterByName.sort(sortDataAz)), calculation.innerHTML = `Sua pesquisa resultou em <span class="percentagenumber">${percentageName}%</span> dos personagens da série!`
         } else if (orderIndex === 'za') {
-            return cards.innerHTML = showCards(filterByName.sort(sortDataZa)), calculation.innerHTML = `${percentageName}%`
+            return cards.innerHTML = showCards(filterByName.sort(sortDataZa)), calculation.innerHTML = `Sua pesquisa resultou em <span class="percentagenumber">${percentageName}%</span> dos personagens da série!`
+        } else if (orderIndex === "episode") {
+            return cards.innerHTML = showCards(filterByName.sort(sortDataEpisode)), calculation.innerHTML = `Sua pesquisa resultou em <span class="percentagenumber">${percentageName}%</span> dos personagens da série!`
         }
 
     } else if (filterIndex === 'Alive' || filterIndex === 'Dead' || filterIndex === 'unknown') {
@@ -65,9 +65,11 @@ buttonSearch.addEventListener('click', (e) => { //filtra, ordena e exibe cards
         const percentageStatus = percentage(data, filterStatus.length);
 
         if (orderIndex === 'az') {
-            return cards.innerHTML = showCards(filterStatus.sort(sortDataAz)), calculation.innerHTML = `${percentageStatus}%`
+            return cards.innerHTML = showCards(filterStatus.sort(sortDataAz)), calculation.innerHTML = `Sua pesquisa resultou em <span class="percentagenumber">${percentageStatus}%</span> dos personagens da série!`
         } else if (orderIndex === 'za') {
-            return cards.innerHTML = showCards(filterStatus.sort(sortDataZa)), calculation.innerHTML = `${percentageStatus}%`
+            return cards.innerHTML = showCards(filterStatus.sort(sortDataZa)), calculation.innerHTML = `Sua pesquisa resultou em <span class="percentagenumber">${percentageStatus}%</span> dos personagens da série!`
+        } else if (orderIndex === "episode") {
+            return cards.innerHTML = showCards(filterStatus.sort(sortDataEpisode)), calculation.innerHTML = `Sua pesquisa resultou em <span class="percentagenumber">${percentageStatus}%</span> dos personagens da série!`
         }
 
     } else if (filterIndex === 'Female' || filterIndex === 'Male' || filterIndex === 'Genderless') {
@@ -75,31 +77,28 @@ buttonSearch.addEventListener('click', (e) => { //filtra, ordena e exibe cards
         const percentageGender = percentage(data, filterGender.length);
 
         if (orderIndex === 'az') {
-            return cards.innerHTML = showCards(filterGender.sort(sortDataAz)), calculation.innerHTML = `${percentageGender}%`
+            return cards.innerHTML = showCards(filterGender.sort(sortDataAz)), calculation.innerHTML = `Sua pesquisa resultou em <span class="percentagenumber">${percentageGender}%</span> dos personagens da série!`
         } else if (orderIndex === 'za') {
-            return cards.innerHTML = showCards(filterGender.sort(sortDataZa)), calculation.innerHTML = `${percentageGender}%`
+            return cards.innerHTML = showCards(filterGender.sort(sortDataZa)), calculation.innerHTML = `Sua pesquisa resultou em <span class="percentagenumber">${percentageGender}%</span> dos personagens da série!`
         } else if (orderIndex === "episode") {
-            return cards.innerHTML = showCards(filterGender.sort(sortDataEpisode)), calculation.innerHTML = `${percentageGender}%`
+            return cards.innerHTML = showCards(filterGender.sort(sortDataEpisode)), calculation.innerHTML = `Sua pesquisa resultou em <span class="percentagenumber">${percentageGender}%</span> dos personagens da série!`
         }
 
     } else if (filterIndex === 'all') {
         const percentageAll = percentage(data, 493);
 
         if (orderIndex === 'az') {
-            return cards.innerHTML = showCards(data.results.sort(sortDataAz)), calculation.innerHTML = `${percentageAll}%`
+            return cards.innerHTML = showCards(data.results.sort(sortDataAz)), calculation.innerHTML = `Você está vendo <span class="percentagenumber">${percentageAll}%</span> dos personagens da série!`
         } else if (orderIndex === 'za') {
-            return cards.innerHTML = showCards(data.results.sort(sortDataZa)), calculation.innerHTML = `${percentageAll}%`
+            return cards.innerHTML = showCards(data.results.sort(sortDataZa)), calculation.innerHTML = `Você está vendo <span class="percentagenumber">${percentageAll}%</span> dos personagens da série!`
+        } else if (orderIndex === "episode") {
+            return cards.innerHTML = showCards(data.results.sort(sortDataEpisode)), calculation.innerHTML = `Você está vendo <span class="percentagenumber">${percentageAll}%</span> dos personagens da série!`
         }
     };
 });
 
-calculation.addEventListener('click', () => {
-    explanation.hidden = false;
-});
-
-// calculation.addEventListener('click', () => {
-//     explanation.hidden = true;
-// });
-
-// L29 E os personagens não-humanos? Como filtrá-los?
 // Como funciona o .join() depois do template?
+// Posicionamento do portal
+// pq aside e main não são sempre 50% do body
+// footer ficar sempre abaixo dos cards e não em cima
+// conteudo de dentro dos cards acupem espaços diferentes
