@@ -15,7 +15,7 @@ const cards = document.querySelector('#cardscontainer');
 filterBox.hidden = true;
 intro.hidden = false;
 
-title.addEventListener('click', (e) => {
+title.addEventListener('click', () => {
     document.location.reload(true);
 });
 
@@ -37,7 +37,7 @@ function showCards(infos) { //cards template
       </article>
         `
     ).join('');
-};
+}
 
 buttonSearch.addEventListener('click', (e) => { //filtra, ordena e exibe cards
     filterBox.hidden = true;
@@ -65,7 +65,7 @@ buttonSearch.addEventListener('click', (e) => { //filtra, ordena e exibe cards
         const percentageStatus = percentage(data, filterStatus.length);
 
         if (orderIndex === 'az') {
-            return cards.innerHTML = showCards(filterStatus.sort(sortDataAz)), calculation.innerHTML = `Sua pesquisa resultou em <span class="percentagenumber">${percentageStatus}%</span> dos personagens da série!`
+            return cards.innerHTML = showCards(filterStatus.sort(sortDataAz)), calculation.innerHTML = `Sua pesquisa resultou em <span class="percentagenumber">${percentageStatus}%</span> dos personagens da série!`   
         } else if (orderIndex === 'za') {
             return cards.innerHTML = showCards(filterStatus.sort(sortDataZa)), calculation.innerHTML = `Sua pesquisa resultou em <span class="percentagenumber">${percentageStatus}%</span> dos personagens da série!`
         } else if (orderIndex === "episode") {
@@ -75,6 +75,7 @@ buttonSearch.addEventListener('click', (e) => { //filtra, ordena e exibe cards
     } else if (filterIndex === 'Female' || filterIndex === 'Male' || filterIndex === 'Genderless') {
         const filterGender = filterData(data, 'gender', filterIndex);
         const percentageGender = percentage(data, filterGender.length);
+        
 
         if (orderIndex === 'az') {
             return cards.innerHTML = showCards(filterGender.sort(sortDataAz)), calculation.innerHTML = `Sua pesquisa resultou em <span class="percentagenumber">${percentageGender}%</span> dos personagens da série!`
@@ -94,7 +95,7 @@ buttonSearch.addEventListener('click', (e) => { //filtra, ordena e exibe cards
         } else if (orderIndex === "episode") {
             return cards.innerHTML = showCards(data.results.sort(sortDataEpisode)), calculation.innerHTML = `Você está vendo <span class="percentagenumber">${percentageAll}%</span> dos personagens da série!`
         }
-    };
+    }
 });
 
 // Como funciona o .join() depois do template?
