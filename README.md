@@ -7,6 +7,7 @@
 * [4. Repositório](#4-repositório)
 * [5. Deploy](#5-deploy)
 * [6. Checklist](#6-checklist)
+* [7. Desenvolvedoras](#7-desenvolvedoras)
 
 ## 1. Resumo do projeto
 Segundo a [Forbes](https://www.forbes.com/sites/bernardmarr/2018/05/21/how-much-data-do-we-create-every-day-the-mind-blowing-stats-everyone-should-read), 90% dos dados que existem hoje foram gerados durante os últimos dois anos. São gerados 2.5 milhões de terabytes de dados diariamente. Apesar disso, os dados por si só são de pouca utilidade. Para que sejam convertidos em **informação** compreensível para os usuários, é preciso entender e processar esses dados. Uma forma simples de fazer isso é criando _interfaces_ e _visualizações_.
@@ -94,15 +95,64 @@ No caso deste projeto, que foi realizado em dupla, o `fork` foi feito por apenas
 - Rodar o comando `npm run deploy` no Terminal.
 
 ## 6. Checklist
-* [✓] Usar VanillaJS.
-* [ ] Passa pelo linter (`npm run pretest`)
-* [ ] Passa pelos testes (`npm test`)
-* [ ] Testes unitários cobrem um mínimo de 70% de statements, functions, lines e branches.
-* [✓] Inclui uma _definição de produto_ clara e informativa no `README.md`.
-* [✓] Inclui histórias de usuário no `README.md`.
-* [✓] Inclui rascunho da solução (protótipo de baixa fidelidade) no `README.md`.
-* [ ] Inclui uma lista de problemas detectados nos testes de usabilidade no `README.md`.
-* [✓] UI: Mostra lista/tabela/etc com dados e/ou indicadores.
-* [ ] UI: Permite ordenar dados por um ou mais campos (asc e desc).
-* [ ] UI: Permite filtrar dados com base em uma condição.
-* [ ] UI: É _responsivo_.
+* [✓] Uso de HTML Semântico
+* [ ] CSS
+  - Uso de seletores
+  - Empregar Box Model
+  - Uso de Flexbox
+* [✓] Web APIs
+  - Seletores DOM
+  - Manipulação de eventos DOM
+  - Manipulação dinâmica DOM
+* [✓] JavaScript
+  - Diferenciar dados primitivos de dados não primitivos
+  - Manipular Arrays
+  - Manipular Objects
+  - Variáveis
+  - Uso de condicionais
+  - Uso de laços
+  - Uso de funções
+  - Testes unitários
+  - Modelo de ECMAScript
+  - Uso de linter (ESLINT)
+  - Uso de identificadores descritivos (nomenclatura semântica)
+  - Expression x Statements
+* [✓] Controle de versões Git e GitHub
+  Git:
+  - Instalação e configuração
+  - Controle de versão com Git (init, clone, add, commit, push, status, pull, remote)
+  - Interação de mudanças entre ramos (branch checkout, merge, reset, rebase, tag, fetch)
+  GitHub:
+  - Criação de contas e repositórios
+  - Configuração da chave SSH
+  - Implementação com GitHub Pages
+  - Colaboração por GitHub (branches, forks, pull requests, code review, tags)
+* [✓] User-centricity
+  - Idealizar a aplicação de acordo com a necessidade do usuário  
+* [✓] Product-design
+  - Criar protótipos para obter feedback e iterar
+  - Aplicar princípios de desenho visual (contraste, alinhamento, hierarquia)
+* [✓] Research
+  - Planejar e executar testes de usabilidade
+## 7. Desenvolvedoras
+Projeto desenvolvido por Érica Lopes e Isabela Nunes - Laboratória SAP-008 - 2022
+<table>
+  <tr>
+    <td alig="center">
+      <a href="https://github.com/blericalopes">
+        <img align="center" src="https://avatars.githubusercontent.com/u/108770517?v=4" width="100px" alt="Foto de Érica Lopes"/><br>
+        <sub>
+          <b>Érica Lopes</b>
+        </sub>
+      </a>
+    </td>
+    <td alig="center">
+      <a href="https://github.com/nunesisabela">
+        <img align="center" src="https://avatars.githubusercontent.com/u/107049807?v=4" width="100px" alt="Foto de Isabela Nunes"/><br>
+        <sub>
+          <b>Isabela Nunes</b>
+        </sub>
+      </a>
+    </td>
+  </tr>
+</table>

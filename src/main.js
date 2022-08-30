@@ -6,14 +6,16 @@ const intro = document.querySelector('#intro')
 const filterBox = document.querySelector('#filterbox');
 const keyWords = document.querySelector('#keywords');
 const buttonFilter = document.querySelector('#filter');
+const buttonRestart = document.querySelector('#restart');
 const buttonSearch = document.querySelector('#search');
 const selectFilter = document.querySelector('#filteroptions');
 const selectOrder = document.querySelector('#orderoptions');
 const calculation = document.querySelector('#calculation');
 const cards = document.querySelector('#cardscontainer');
 
-filterBox.hidden = true;
 intro.hidden = false;
+filterBox.hidden = true;
+buttonRestart.hidden = true;
 
 title.addEventListener('click', () => {
     document.location.reload(true);
@@ -40,8 +42,10 @@ function showCards(infos) { //cards template
 }
 
 buttonSearch.addEventListener('click', (e) => { //filtra, ordena e exibe cards
-    filterBox.hidden = true;
     intro.hidden = true;
+    filterBox.hidden = true;
+    buttonFilter.hidden = true;
+    buttonRestart.hidden = false;
     e.preventDefault();
 
     const filterIndex = selectFilter.options[selectFilter.selectedIndex].value;

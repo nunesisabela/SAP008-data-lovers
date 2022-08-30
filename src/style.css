@@ -10,6 +10,7 @@ body {
 
 aside {
     mix-blend-mode: lighten;
+    z-index: 0;
 }
 
 main {
@@ -27,9 +28,6 @@ main {
 
 #intro {
     margin-block-start: 0px;
-    margin-block-end: 35px;
-    z-index: 1;
-
 }
 
 input[name=keywords] {
@@ -40,7 +38,6 @@ input[name=keywords] {
     background-color: white;
     margin-block-start: 0px;
     margin-block-end: 20px;
-    z-index: 1;
 }
 
 .buttons {
@@ -55,7 +52,8 @@ input[name=keywords] {
     z-index: 1;
 }
 
-#filter {
+#filter,
+#restart {
     -webkit-text-stroke-color: #73D8CC;
 }
 
@@ -79,15 +77,12 @@ input[name=keywords] {
 
 #calculation {
     margin-block-start: 0px;
-    margin-block-end: 20px;
-    z-index: 1;
 }
 
 .percentagenumber {
     font-family: 'Atma', cursive;
     text-shadow: 0px 0px 4px #00ffe1, 0 0 1em #73d8cc;
     font-size: 24px;
-    z-index: 1;
 }
 
 #filterbox {
@@ -95,15 +90,14 @@ input[name=keywords] {
     border-radius: 10px;
     padding: 1%;
     width: max-content;
-    z-index: 1;
 }
 
 #cardscontainer {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    height: 490px;
     overflow: auto;
+    z-index: 1;
 }
 
 .cards {
@@ -119,14 +113,10 @@ input[name=keywords] {
     flex-direction: column;
     align-items: center;
     flex: 0 1 25%;
-    z-index: 1;
-
 }
 
 
 #photos {
-    margin: 20px;
-    height: 200px;
     border-radius: 10px;
 }
 
@@ -137,9 +127,7 @@ p#names {
     background-color: transparent;
     font-weight: 700;
     word-wrap: break-word;
-    width: 150px;
     margin: 5px;
-    font-size: 22px;
 }
 
 ul {
@@ -171,12 +159,16 @@ footer {
     body {
         flex-wrap: wrap;
         font-size: 14px;
+        overflow: hidden;
+    }
+
+    main {
+        margin-top: -130px;
     }
 
     #portalmobile {
-        width: 476px;
-        top: 0;
-        z-index: -1;
+        width: 100vw;
+        margin-top: -60px;
     }
 
     #portalweb {
@@ -184,9 +176,14 @@ footer {
     }
 
     #title {
-        width: 400px;
-        margin-bottom: 20px;
-        margin-top: 0px;
+        width: 90vw;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+
+    #intro {
+        margin-block-end: 20px;
+        width: 75vw;
     }
 
     input[name=keywords] {
@@ -194,11 +191,40 @@ footer {
         width: 350px;
         height: 30px;
         border-radius: 15px;
-        font-size: 14px;
+        margin-block-end: 10px;
     }
 
     .buttons {
         font-size: 24px;
+        margin-bottom: 0;
+    }
+
+    #calculation {
+        margin-block-end: 10px;
+    }
+
+    #cardscontainer {
+        height: 295px;
+    }
+
+    .cards {
+        flex: 0 1 50%;
+        max-height: -webkit-fill-available;
+    }
+
+    #photos {
+        margin: 5px;
+        margin-top: 20px;
+        height: 120px;
+    }
+
+    p#names {
+        font-size: 16px;
+        width: 130px;
+    }
+
+    ul {
+        margin-block-start: 1px;
     }
 
 }
@@ -218,7 +244,6 @@ footer {
         position: fixed;
         bottom: 0;
         left: 0;
-        z-index: -1;
     }
 
     main {
@@ -231,14 +256,39 @@ footer {
         margin-bottom: 20px;
     }
 
+    #intro {
+        margin-block-end: 35px;
+        width: 25vw;
+    }
+
     input[name=keywords] {
         width: 500px;
         height: 44px;
         border-radius: 22px;
         font-size: 18px;
+        margin-block-end: 20px;
     }
 
     .buttons {
         font-size: 28px;
     }
+
+    #calculation {
+        margin-block-end: 20px;
+    }
+
+    #cardscontainer {
+        height: 490px;
+    }
+
+    #photos {
+        margin: 20px;
+        height: 200px;
+    }
+
+    p#names {
+        font-size: 22px;
+        width: 150px;
+    }
+
 }
