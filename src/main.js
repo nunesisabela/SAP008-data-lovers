@@ -98,8 +98,8 @@ buttonSearch.addEventListener('click', (e) => { //filtra, ordena e exibe cards
     }
 });
 
-// Como funciona o .join() depois do template?
-// Posicionamento do portal
-// pq aside e main não são sempre 50% do body
-// footer ficar sempre abaixo dos cards e não em cima
-// conteudo de dentro dos cards acupem espaços diferentes
+// Filterbox sobrepondo
+// Como sobrepor logo e portal
+// Estilizar o scroll
+// Campo de busca por nome x busca por filtro (apagar nome no input?)
+// Conteúdo de dentro dos cards acupando espaços diferentes
