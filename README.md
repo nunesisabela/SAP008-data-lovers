@@ -12,7 +12,7 @@
 ## 1. Resumo do projeto
 Segundo a [Forbes](https://www.forbes.com/sites/bernardmarr/2018/05/21/how-much-data-do-we-create-every-day-the-mind-blowing-stats-everyone-should-read), 90% dos dados que existem hoje foram gerados durante os últimos dois anos. São gerados 2.5 milhões de terabytes de dados diariamente. Apesar disso, os dados por si só são de pouca utilidade. Para que sejam convertidos em **informação** compreensível para os usuários, é preciso entender e processar esses dados. Uma forma simples de fazer isso é criando _interfaces_ e _visualizações_.
 
-Neste projeto, foi criada a segunda aplicação web do bootcamp Laboratória, de interface amigável e compreensível. Nela, o usuário pode fazer suas pesquisas acerca do tema Rick and Morty de acordo com os filtros que prefira (gênero, status, espécie), acessar a resposta à pequisa realizada por ordem alfabética e obter a porcentagem que o resultado dos filtros aplicados representa em relação à série.
+Neste projeto, foi criada a segunda aplicação web do bootcamp Laboratória, de interface amigável e compreensível. Nela, o usuário pode fazer suas pesquisas acerca do tema Rick and Morty de acordo com os filtros que prefira (gênero ou status), acessar a resposta à pequisa realizada por ordem alfabética, ordem alfabética reversa e por episódio e obter a porcentagem que o resultado dos filtros aplicados representa em relação à série.
 
 ### Rick and Morty
 Rick and Morty é uma série de televisão de animação americana para adultos que traz as experiências do cientista Rick e seu neto,
@@ -37,22 +37,20 @@ Foram definidas 02 histórias de usuário para este projeto:
 A fim de definir a aplicação, a partir das histórias de usuário, obtem-se a definição de pronto referente a cada uma delas
   01. Para que esta história seja atendida, é necessário:
   - Um campo de pesquisa com palavra-chave;
-  - Uma seção de filtragem com opção de selecionar o filtro de “status” (vivo/morto) que deseja aplicar, por intermédio de radio button;
-  - Botão “OK” ou “Pesquisar” para disparar a função de filtragem;
-  - Exibição de CARDS contendo as informações principais (nome, imagem e local de origem) dos personagens que atendem à filtragem.
-  - Ao clicar no CARD, ele expande e exibe informações complementares sobre o personagem selecionado.
+  - Uma seção de filtragem com opção de selecionar o filtro de “status” (vivo/morto/desconhecido) que deseja aplicar, por intermédio de selects;
+  - Botão “Buscar” para disparar a função de filtragem;
+  - Exibição de CARDS contendo as informações principais (imagem, nome e local de origem) dos personagens que atendem à filtragem.
 
 02. Para que esta história seja atendida, é necessário:
   - Um campo de pesquisa com palavra-chave;
-  - Uma seção de filtragem com opção de selecionar o filtro de “gênero” (feminino/masculino) que deseja aplicar, por intermédio de radio button;
-  - Botão “OK” ou “Pesquisar” para disparar a função de filtragem;
-  - Exibição de CARDS contendo as informações principais (nome, imagem e local de origem) dos personagens que atendem à filtragem;
-  - Ao clicar no CARD, ele expande e exibe outras informações, inclusive a listagem dos episódios em que aquele personagem, em particular, aparece.
+  - Uma seção de filtragem com opção de selecionar o filtro de “gênero” (feminino/masculino/sem gênero) que deseja aplicar, por intermédio de selects;
+  - Botão “Buscar” para disparar a função de filtragem;
+  - Exibição de CARDS contendo as informações principais (imagem, nome e local de origem) dos personagens que atendem à filtragem.
   
 ## 3. Aplicação 
-Para este projeto, imaginou-se uma aplicação condizente com o tema da série, considerando aspectos intergalácticos e tecnológicos. As tipografias escolhidas foram [K2D](https://br.maisfontes.com/k2d-bold.fonte), para textos corridos e informações mais extensas, e [Atma](https://br.maisfontes.com/atma.fonte) com stroke, para os nomes dos personagens e para os botões "Filtrar" e "Buscar". 
+Para este projeto, imaginou-se uma aplicação condizente com o tema da série, considerando aspectos intergalácticos e tecnológicos. As tipografias escolhidas foram [K2D](https://br.maisfontes.com/k2d-bold.fonte), para textos corridos e informações mais extensas, e [Atma](https://br.maisfontes.com/atma.fonte) com stroke, para os nomes dos personagens e para os botões "Filtrar" e "Buscar", além do botão "Recomeçar". 
 
-O layout conta com a [logo](https://github.com/blericalopes/SAP008-data-lovers/blob/main/src_data_lovers/rick_and_morty_header.png) de Rick and Morty no `<header>`, em conjunto com um texto introdutório. Abaixo do texto, a tag `<nav>` delimita o `<input>` de texto com o `placeholder` "Palavras-chave" com os `<buttons>` de filtragem e busca. Ao clicar em "Filtrar", uma `<div>` com `<input>` do tipo radio é exibida, contendo todos os itens filtradores Status (vivo/morto), Gênero (feminino/masculino) e Espécie (humano/não humano). Os cards e os botões "Filtrar" e "Buscar" utilizam as cores `#73D8CC` e `#78C742`
+O layout conta com a [logo](https://github.com/blericalopes/SAP008-data-lovers/blob/main/src_data_lovers/rick_and_morty_header.png) de Rick and Morty na `<main>`, em conjunto com um texto introdutório. Abaixo do texto, a tag `<form>` delimita o `<input>` de texto com o `placeholder` "Palavras-chave" com os `<buttons>` de filtragem, recomeço e busca. Ao clicar em "Filtrar", uma `<section>` com `<select>` é exibida, contendo as `options` filtradoras Status (vivo/morto/desconhecido) e Gênero (feminino/masculino/sem gênero). Os cards e os botões "Filtrar", "Recomeçar" e "Buscar" utilizam as cores `#73D8CC` e `#78C742`
 
 ### Prototipagem
 O processo de prototipagem foi dividido em duas etapas; na primeira, em baixa fidelidade, foram feitos sketches para visualizar a ideia, com cada elemento imaginado desenhado à parte para que fosse possível movimentá-los, visualizar possibilidades e chegar ao melhor layout. Já na segunda, em alta fidelidade, foi utilizada a ferramenta Figma. O resultado segue abaixo:
@@ -96,7 +94,7 @@ No caso deste projeto, que foi realizado em dupla, o `fork` foi feito por apenas
 
 ## 6. Checklist
 * [✓] Uso de HTML Semântico
-* [ ] CSS
+* [✓] CSS
   - Uso de seletores
   - Empregar Box Model
   - Uso de Flexbox
