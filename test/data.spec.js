@@ -1,4 +1,4 @@
-import { filterData, filterName, sortDataAz, sortDataEpisode, sortDataZa } from '../src/data.js';
+import { filterData, filterName, percentage, sortArr } from '../src/data.js';
 const data = {
   "info": {
     "count": 6,
@@ -33,7 +33,7 @@ const data = {
       "name": "Annie",
       "status": "Alive",
       "gender": "Female",
-      "episode": 2 
+      "episode": 2
     },
     {
       "name": "Brad Anderson",
@@ -54,7 +54,7 @@ const newArrObjFemale = [{
   "gender": "Female",
   "name": "Annie",
   "status": "Alive",
-  "episode": 2 
+  "episode": 2
 },
 ]
 
@@ -85,13 +85,12 @@ describe('filters data by name', () => {
   });
 });
 
-describe('sorts the array from A to Z', () => {
+describe('sorts the array', () => {
   it('is a function', () => {
-    expect(typeof sortDataAz).toBe('function');
+    expect(typeof sortArr).toBe('function');
   });
-
-  it('should return elements in alphabetic order', () => {
-    const arrOrdered = {
+  it('should return characters sorted from A to Z', () => {
+    const arrOrderedAz = {
       "info": {
         "count": 6,
         "pages": 1,
@@ -101,51 +100,45 @@ describe('sorts the array from A to Z', () => {
           "name": "Albert Einstein",
           "status": "Dead",
           "gender": "Male",
-          "episode": 5  
+          "episode": 5
         },
         {
           "name": "Annie",
           "status": "Alive",
           "gender": "Female",
-          "episode": 2  
+          "episode": 2
         },
         {
           "name": "Brad Anderson",
           "status": "Dead",
           "gender": "Male",
-          "episode": 3  
+          "episode": 3
         },
         {
           "name": "Morty Smith",
           "status": "Alive",
           "gender": "Male",
-          "episode": 1 
+          "episode": 1
         },
         {
           "name": "Rick Sanchez",
           "status": "Alive",
           "gender": "Male",
-          "episode": 4  
+          "episode": 4
         },
         {
           "name": "Summer Smith",
           "status": "Alive",
           "gender": "Female",
-          "episode": 6 
+          "episode": 6
         },
       ]
     }
-    expect(data.results.sort(sortDataAz)).toStrictEqual(arrOrdered.results);
-  });
-});
+    expect(sortArr(data.results, 'az').toStrictEqual(arrOrderedAz))
+  })
 
-describe('sorts the array from Z to A', () => {
-  it('is a function', () => {
-    expect(typeof sortDataZa).toBe('function');
-  });
-
-  it('should return elements in reverse alphabetic order', () => {
-    const arrOrdered = {
+  it('should return characters sorted from Z to A', () => {
+    const arrOrderedZa = {
       "info": {
         "count": 6,
         "pages": 1,
@@ -155,51 +148,46 @@ describe('sorts the array from Z to A', () => {
           "name": "Summer Smith",
           "status": "Alive",
           "gender": "Female",
-          "episode": 6 
+          "episode": 6
         },
         {
           "name": "Rick Sanchez",
           "status": "Alive",
           "gender": "Male",
-          "episode": 4  
+          "episode": 4
         },
         {
           "name": "Morty Smith",
           "status": "Alive",
           "gender": "Male",
-          "episode": 1 
+          "episode": 1
         },
         {
           "name": "Brad Anderson",
           "status": "Dead",
           "gender": "Male",
-          "episode": 3  
+          "episode": 3
         },
         {
           "name": "Annie",
           "status": "Alive",
           "gender": "Female",
-          "episode": 2  
+          "episode": 2
         },
         {
           "name": "Albert Einstein",
           "status": "Dead",
           "gender": "Male",
-          "episode": 5  
+          "episode": 5
         },
       ]
     }
-    expect(data.results.sort(sortDataZa)).toStrictEqual(arrOrdered.results);
-  });
-});
+    const selectZa = 'za'
+    expect(sortArr(data, selectZa).toStrictEqual(arrOrderedZa))
+  })
 
-describe('sorts the array by episode order', () => {
-  it('is a function', () => {
-    expect(typeof sortDataEpisode).toBe('function');
-  });
-
-  it('should return elements in episode order', () => {
-    const arrOrdered = {
+  it('should return characters ordered by episode', () => {
+    const arrOrderedEp = {
       "info": {
         "count": 6,
         "pages": 1,
@@ -209,40 +197,50 @@ describe('sorts the array by episode order', () => {
           "name": "Morty Smith",
           "status": "Alive",
           "gender": "Male",
-          "episode": 1 
+          "episode": 1
         },
         {
           "name": "Annie",
           "status": "Alive",
           "gender": "Female",
-          "episode": 2  
+          "episode": 2
         },
         {
           "name": "Brad Anderson",
           "status": "Dead",
           "gender": "Male",
-          "episode": 3  
+          "episode": 3
         },
         {
           "name": "Rick Sanchez",
           "status": "Alive",
           "gender": "Male",
-          "episode": 4  
+          "episode": 4
         },
         {
           "name": "Albert Einstein",
           "status": "Dead",
           "gender": "Male",
-          "episode": 5  
+          "episode": 5
         },
         {
           "name": "Summer Smith",
           "status": "Alive",
           "gender": "Female",
-          "episode": 6 
-        },
+          "episode": 6
+        }
       ]
     }
-    expect(data.results.sort(sortDataEpisode)).toStrictEqual(arrOrdered.results);
-  });
+    const selectEpisode = 'episode'
+    expect(sortArr(data, selectEpisode)).toStrictEqual(arrOrderedEp)
+  })
 });
+
+describe('calculates percentage of the filtered characters', () => {
+  it('is a function', () => {
+    expect(typeof percentage).toBe('function');
+  });
+  it('should return percentage of the filtered characters', () => {
+    expect(percentage(data, newArrObjFemale.length)).toBe(33);
+  });
+})

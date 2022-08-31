@@ -1,4 +1,4 @@
-import { filterData, filterName, percentage, sortDataAz, sortDataEpisode, sortDataZa } from './data.js';
+import { filterData, filterName, percentage, sortArr } from './data.js';
 import data from './data/rickandmorty/rickandmorty.js';
 
 const title = document.querySelector('#title');
@@ -56,51 +56,26 @@ buttonSearch.addEventListener('click', (e) => { //filtra, ordena e exibe cards
         const filterByName = filterName(data, keyWords.value);
         const percentageName = percentage(data, filterByName.length);
 
-        if (orderIndex === 'az') {
-            return cards.innerHTML = showCards(filterByName.sort(sortDataAz)), calculation.innerHTML = `Sua pesquisa resultou em <span class="percentagenumber">${percentageName}%</span> dos personagens da série!`
-        } else if (orderIndex === 'za') {
-            return cards.innerHTML = showCards(filterByName.sort(sortDataZa)), calculation.innerHTML = `Sua pesquisa resultou em <span class="percentagenumber">${percentageName}%</span> dos personagens da série!`
-        } else if (orderIndex === "episode") {
-            return cards.innerHTML = showCards(filterByName.sort(sortDataEpisode)), calculation.innerHTML = `Sua pesquisa resultou em <span class="percentagenumber">${percentageName}%</span> dos personagens da série!`
-        }
+        return cards.innerHTML = showCards(sortArr(filterByName, orderIndex)), calculation.innerHTML = `Sua pesquisa resultou em <span class="percentagenumber">${percentageName}%</span> dos personagens da série!`
 
     } else if (filterIndex === 'Alive' || filterIndex === 'Dead' || filterIndex === 'unknown') {
         const filterStatus = filterData(data, 'status', filterIndex);
         const percentageStatus = percentage(data, filterStatus.length);
 
-        if (orderIndex === 'az') {
-            return cards.innerHTML = showCards(filterStatus.sort(sortDataAz)), calculation.innerHTML = `Sua pesquisa resultou em <span class="percentagenumber">${percentageStatus}%</span> dos personagens da série!`   
-        } else if (orderIndex === 'za') {
-            return cards.innerHTML = showCards(filterStatus.sort(sortDataZa)), calculation.innerHTML = `Sua pesquisa resultou em <span class="percentagenumber">${percentageStatus}%</span> dos personagens da série!`
-        } else if (orderIndex === "episode") {
-            return cards.innerHTML = showCards(filterStatus.sort(sortDataEpisode)), calculation.innerHTML = `Sua pesquisa resultou em <span class="percentagenumber">${percentageStatus}%</span> dos personagens da série!`
-        }
+        return cards.innerHTML = showCards(sortArr(filterStatus, orderIndex)), calculation.innerHTML = `Sua pesquisa resultou em <span class="percentagenumber">${percentageStatus}%</span> dos personagens da série!`
 
     } else if (filterIndex === 'Female' || filterIndex === 'Male' || filterIndex === 'Genderless') {
         const filterGender = filterData(data, 'gender', filterIndex);
         const percentageGender = percentage(data, filterGender.length);
-        
 
-        if (orderIndex === 'az') {
-            return cards.innerHTML = showCards(filterGender.sort(sortDataAz)), calculation.innerHTML = `Sua pesquisa resultou em <span class="percentagenumber">${percentageGender}%</span> dos personagens da série!`
-        } else if (orderIndex === 'za') {
-            return cards.innerHTML = showCards(filterGender.sort(sortDataZa)), calculation.innerHTML = `Sua pesquisa resultou em <span class="percentagenumber">${percentageGender}%</span> dos personagens da série!`
-        } else if (orderIndex === "episode") {
-            return cards.innerHTML = showCards(filterGender.sort(sortDataEpisode)), calculation.innerHTML = `Sua pesquisa resultou em <span class="percentagenumber">${percentageGender}%</span> dos personagens da série!`
-        }
+        return cards.innerHTML = showCards(sortArr(filterGender, orderIndex)), calculation.innerHTML = `Sua pesquisa resultou em <span class="percentagenumber">${percentageGender}%</span> dos personagens da série!`
 
     } else if (filterIndex === 'all') {
         const percentageAll = percentage(data, 493);
 
-        if (orderIndex === 'az') {
-            return cards.innerHTML = showCards(data.results.sort(sortDataAz)), calculation.innerHTML = `Você está vendo <span class="percentagenumber">${percentageAll}%</span> dos personagens da série!`
-        } else if (orderIndex === 'za') {
-            return cards.innerHTML = showCards(data.results.sort(sortDataZa)), calculation.innerHTML = `Você está vendo <span class="percentagenumber">${percentageAll}%</span> dos personagens da série!`
-        } else if (orderIndex === "episode") {
-            return cards.innerHTML = showCards(data.results.sort(sortDataEpisode)), calculation.innerHTML = `Você está vendo <span class="percentagenumber">${percentageAll}%</span> dos personagens da série!`
-        }
+        return cards.innerHTML = showCards(sortArr(data.results, orderIndex)), calculation.innerHTML = `Você está vendo <span class="percentagenumber">${percentageAll}%</span> dos personagens da série!`
     }
-});
+})
 
 // Filterbox sobrepondo
 // Como sobrepor logo e portal
