@@ -10,6 +10,7 @@ const buttonRestart = document.querySelector('#restart');
 const buttonSearch = document.querySelector('#search');
 const selectFilter = document.querySelector('#filteroptions');
 const selectOrder = document.querySelector('#orderoptions');
+const selectProperty = document.querySelectorAll('.property')
 const calculation = document.querySelector('#calculation');
 const cards = document.querySelector('#cardscontainer');
 
@@ -50,6 +51,8 @@ buttonSearch.addEventListener('click', (e) => { //filtra, ordena e exibe cards
 
     const filterIndex = selectFilter.options[selectFilter.selectedIndex].value;
     const orderIndex = selectOrder.options[selectOrder.selectedIndex].value;
+    // const disabledIndex = selectProperty.options.selectedIndex.value
+    // console.log(disabledIndex)
 
     if (keyWords.value !== '') {
 
@@ -76,9 +79,3 @@ buttonSearch.addEventListener('click', (e) => { //filtra, ordena e exibe cards
         return cards.innerHTML = showCards(sortArr(data.results, orderIndex)), calculation.innerHTML = `Você está vendo <span class="percentagenumber">${percentageAll}%</span> dos personagens da série!`
     }
 })
-
-// Filterbox sobrepondo
-// Como sobrepor logo e portal
-// Estilizar o scroll
-// Campo de busca por nome x busca por filtro (apagar nome no input?)
-// Conteúdo de dentro dos cards acupando espaços diferentes

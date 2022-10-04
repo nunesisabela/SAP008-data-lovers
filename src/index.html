@@ -25,11 +25,11 @@
 
   <main>
 
-    <img id="title"
+    <img id="title" class="title"
       src="https://github.com/blericalopes/SAP008-data-lovers/blob/main/src_data_lovers/rick_and_morty_header.png?raw=true"
       alt="logo Rick and Morty">
 
-    <p id="intro">Rick and Morty traz as vivências do cientista Rick e seu neto, Morty, nas infinitas possibilidades que o universo permite. 
+    <p id="intro" class="intro">Rick and Morty traz as vivências do cientista Rick e seu neto, Morty, nas infinitas possibilidades que o universo permite. 
       Abordando relacionamentos, moralidade, filosofia, sociologia eciência, diversos personagens são apresentados e, aqui, você pode procurar 
       e saber um pouco mais sobre cada um.</p>
 
@@ -40,19 +40,19 @@
       <button id="restart" class="buttons">RECOMEÇAR</button>
       <button id="search" class="buttons">BUSCAR</button>
 
-      <section id="filterbox">
+      <section id="filterbox" class="filterbox">
 
         <p style="
         margin-top: 5px;
         margin-bottom: 5px;">Selecione um filtro:</p>
-        <select id="filteroptions">
+        <select id="filteroptions" class="select">
 
-          <option disabled selected>Status:</option>
+          <option value="status" class="property" disabled selected>Status:</option>
           <option value="Alive" selected>Vivo</option>
           <option value="Dead">Morto</option>
           <option value="unknown">Desconhecido</option>
 
-          <option disabled selected>Gênero:</option>
+          <option value="gender" class="property" disabled selected>Gênero:</option>
           <option value="Female" selected>Feminino</option>
           <option value="Male">Masculino</option>
           <option value="Genderless">Sem gênero</option>
@@ -64,7 +64,7 @@
         <p style="
         margin-top: 10px;
         margin-bottom: 5px;">Ordenar por:</p>
-        <select id="orderoptions">
+        <select id="orderoptions" class="select">
 
           <option value="az" selected>A-z</option>
           <option value="za">Z-a</option>
@@ -75,9 +75,9 @@
       </section>
 
     </form>
-    <p id="calculation"></p>
+    <p id="calculation" class="calculation"></p>
     
-    <section id="cardscontainer"></section>
+    <section id="cardscontainer" class="cardscontainer"></section>
 
     <footer>Developed by Érica Lopes e Isabela Nunes</footer>
   </main>
